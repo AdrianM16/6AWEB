@@ -1,0 +1,50 @@
+/* Footer Component CSS */
+.technical-skills {
+  padding: 20px 0;
+}
+
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 2px solid #222;
+  padding-bottom: 6px;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.tech-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tech-category {
+  background-color: #f7f7f7;
+  padding: 15px 18px;
+  border-left: 4px solid #222;
+  border-radius: 5px;
+}
+
+.category-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.tech-items {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.15rem;
+  }
+
+  .tech-items {
+    font-size: 0.9rem;
+  }
+}

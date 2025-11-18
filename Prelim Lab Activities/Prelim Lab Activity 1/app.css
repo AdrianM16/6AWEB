@@ -1,0 +1,224 @@
+/* Global Styles - Unique Personalization */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cv-container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 50px 70px;
+  font-family: 'Montserrat', 'Segoe UI', sans-serif; /* Sleek geometric font */
+  background: radial-gradient(circle at top left, #fef9f4, #f3e9dc); /* Soft radial gradient */
+  color: #2a2a2a;
+  line-height: 1.8;
+  border: 3px solid #d4a373; /* Unique border accent */
+  border-radius: 20px; /* Rounded edges for personality */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Elevated card feel */
+}
+
+/* Header Styles */
+.cv-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.name {
+  font-size: 3.2rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+  color: #9c6644; /* Distinct earthy tone */
+  text-transform: uppercase;
+  background: linear-gradient(to right, #9c6644, #d4a373);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Gradient text effect */
+}
+
+.contact-info {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.contact-item strong {
+  font-weight: 700;
+  color: #9c6644;
+}
+
+.contact-item a {
+  color: #d4a373;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #7f5539;
+  transform: scale(1.05); /* Subtle hover zoom */
+}
+
+.divider {
+  width: 100%;
+  height: 4px;
+  background: repeating-linear-gradient(
+    to right,
+    #d4a373,
+    #d4a373 10px,
+    transparent 10px,
+    transparent 20px
+  ); /* Unique dotted divider */
+  margin-top: 25px;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #7f5539;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 4px double #d4a373; /* Double underline for uniqueness */
+  text-transform: uppercase;
+}
+
+/* Profile Section */
+.profile-text {
+  font-size: 1.1rem;
+  color: #333;
+  text-align: justify;
+  line-height: 1.9;
+  background: #fffaf3;
+  padding: 20px;
+  border-left: 6px solid #9c6644;
+  border-radius: 10px;
+  font-style: italic; /* Adds personality */
+}
+
+/* Skills Section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.skills-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+.skills-list li::before {
+  content: "✦"; /* Unique star bullet */
+  position: absolute;
+  left: 5px;
+  color: #d4a373;
+  font-size: 1.2rem;
+}
+
+/* Technical Skills Section */
+.tech-category {
+  background: #fffaf3;
+  padding: 20px 25px;
+  border-radius: 12px;
+  border-left: 6px solid #9c6644;
+  box-shadow: inset 0 0 10px rgba(212,163,115,0.2); /* Inner glow */
+}
+
+.category-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #7f5539;
+  margin-bottom: 12px;
+}
+
+.tech-items {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cv-container {
+    padding: 35px 25px;
+  }
+
+  .name {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cv-container {
+    padding: 20px 15px;
+  }
+
+  .name {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .contact-info {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+
+  .profile-text,
+  .skills-list li,
+  .tech-items {
+    font-size: 0.95rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .cv-container {
+    padding: 20px;
+    max-width: 100%;
+    background: #fff;
+    border: none;
+    box-shadow: none;
+  }
+
+  .name {
+    font-size: 2.5rem;
+    color: #000;
+    background: none;
+    -webkit-text-fill-color: initial;
+  }
+
+  .section-title {
+    page-break-after: avoid;
+  }
+
+  .profile-section,
+  .skills-section,
+  .technical-skills {
+    page-break-inside: avoid;
+  }
+}
