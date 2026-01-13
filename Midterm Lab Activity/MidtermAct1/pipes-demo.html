@@ -1,0 +1,104 @@
+<div class="page">
+  <h2 class="title">Angular Pipes Demo</h2>
+
+  <!-- Date Pipe -->
+  <section class="card">
+    <h3>Date Pipe</h3>
+    <p><b>Current time:</b> {{ presentDate | date }}</p>
+
+    <div class="output">
+      <p>This is a short date: {{ presentDate | date:'shortDate' }}</p>
+      <p>This line shows the full date: {{ presentDate | date:'fullDate' }}</p>
+      <p>This will show a formatted date: {{ presentDate | date:'MM/dd/yyyy' }}</p>
+      <p>This indicates the hours and minutes: {{ presentDate | date:'h:mm' }}</p>
+    </div>
+  </section>
+
+  <!-- Async Pipe -->
+  <section class="card">
+    <h3>Async Pipe</h3>
+    <p class="output">
+      Seconds changing in Time: <b>{{ time$ | async | date:'mediumTime' }}</b>
+    </p>
+  </section>
+
+  <!-- Uppercase and Lowercase -->
+  <section class="card">
+    <h3>Uppercase / Lowercase Pipe</h3>
+    <div class="output">
+      <p>Date with uppercase: {{ presentDate | date:'fullDate' | uppercase }}</p>
+      <p>Date with lowercase: {{ presentDate | date:'medium' | lowercase }}</p>
+    </div>
+  </section>
+
+  <!-- Currency Pipe -->
+  <section class="card">
+    <h3>Currency Pipe</h3>
+    <div class="output">
+      <p>Price: {{ price | currency: '':true }}</p>
+      <p>Price: {{ price | currency: 'Php':true }}</p>
+    </div>
+  </section>
+
+  <!-- Slice Pipe -->
+  <section class="card">
+    <h3>Slice Pipe</h3>
+    <div class="output">
+      <p><b>Start index:</b> {{ Fruits | slice:2 }}</p>
+      <p><b>Start and end index:</b> {{ Fruits | slice:1:4 }}</p>
+      <p><b>Negative index:</b> {{ Fruits | slice:-2 }}</p>
+      <p><b>Negative start and end index:</b> {{ Fruits | slice:-4:-2 }}</p>
+    </div>
+  </section>
+
+  <!-- Decimal Pipe -->
+  <section class="card">
+    <h3>Decimal Pipe</h3>
+    <div class="output center">
+      <p>Apply formatting: {{ decimalNum1 | number:'3.1' }}</p>
+      <p>Apply formatting: {{ decimalNum1 | number:'2.1-4' }}</p>
+    </div>
+  </section>
+
+  <!-- Percent Pipe -->
+  <section class="card">
+    <h3>Percent Pipe</h3>
+    <div class="output">
+      <p>A: {{ a | percent }}</p>
+      <p>B: {{ b | percent:'4.3-5' }}</p>
+    </div>
+  </section>
+
+  <!-- JSON Pipe -->
+  <section class="card">
+    <h3>JSON Pipe</h3>
+    <p class="label">Without JSON pipe:</p>
+    <pre class="code">{{ object }}</pre>
+
+    <p class="label">With JSON pipe:</p>
+    <pre class="code">{{ object | json }}</pre>
+  </section>
+
+  <!-- KeyValue Pipe -->
+  <section class="card">
+    <h3>KeyValue Pipe</h3>
+
+    <p class="label">Object</p>
+    <div class="list">
+      <div class="item" *ngFor="let item of object | keyvalue">
+        <span class="key">{{ item.key }}</span>
+        <span class="value">{{ item.value }}</span>
+      </div>
+    </div>
+
+    <p class="label">Map</p>
+    <div class="list">
+      <div class="item" *ngFor="let item of map | keyvalue">
+        <span class="key">{{ item.key }}</span>
+        <span class="value">{{ item.value }}</span>
+      </div>
+    </div>
+  </section>
+
+  <p class="footer"><!--ANUNCIACION, ADRIAN--></p>
+</div>
