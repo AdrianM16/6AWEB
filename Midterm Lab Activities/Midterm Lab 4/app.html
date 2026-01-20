@@ -1,0 +1,43 @@
+<h2>EMPLOYEES LIST</h2>
+
+<table border="1" cellpadding="10">
+  <tr>
+    <th>ID</th>
+    <th>FIRST NAME</th>
+    <th>LASTNAME</th>
+    <th>EMAIL</th>
+  </tr>
+
+  @for (employee of employees; track employee.id) {
+    <tr>
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.firstname }}</td>
+      <td>{{ employee.lastname }}</td>
+      <td>{{ employee.email }}</td>
+    </tr>
+  }
+</table>
+
+<br><br>
+
+<h2>PRODUCT LIST</h2>
+
+<table border="1" cellpadding="10">
+  <tr>
+    <th>Product ID</th>
+    <th>Product Name</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+
+  @for (product of products; track product.pid) {
+    <tr>
+      <td>{{ product.pid }}</td>
+      <td>{{ product.pname }}</td>
+      <td>{{ product.desc }}</td>
+      <td>{{ product.price }}</td>
+    </tr>
+  }
+</table>
+
+<router-outlet />
