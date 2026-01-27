@@ -1,0 +1,108 @@
+/* Page spacing */
+.section-title {
+  margin: 40px 0 15px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Card container */
+.table-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+/* Base table */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Header */
+.styled-table thead th {
+  padding: 14px 16px;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+/* Body cells */
+.styled-table tbody td {
+  padding: 14px 16px;
+  font-size: 15px;
+  color: #374151;
+}
+
+/* Zebra striping */
+.styled-table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+/* Hover animation */
+.styled-table tbody tr {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #eef2ff;
+  transform: scale(1.01);
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.01);
+}
+
+/* USERS THEME */
+.users-title {
+  color: #1e40af;
+}
+
+.users-table thead th {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #ffffff;
+}
+
+.users-card {
+  border-top: 5px solid #2563eb;
+}
+
+/* PRODUCTS THEME */
+.products-title {
+  color: #047857;
+}
+
+.products-table thead th {
+  background: linear-gradient(135deg, #10b981, #047857);
+  color: #ffffff;
+}
+
+.products-card {
+  border-top: 5px solid #10b981;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .styled-table thead {
+    display: none;
+  }
+
+  .styled-table tbody tr {
+    display: block;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background: #ffffff;
+  }
+
+  .styled-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+  }
+
+  .styled-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #6b7280;
+  }
+}

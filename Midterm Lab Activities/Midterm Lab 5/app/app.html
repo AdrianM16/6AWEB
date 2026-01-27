@@ -1,0 +1,49 @@
+<h2 class="section-title users-title">Users List (JSONPlaceholder)</h2>
+<div class="table-card users-card">
+  <table class="styled-table users-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Website</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.website }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="section-title products-title">Products List (DummyJSON)</h2>
+<div class="table-card products-card">
+  <table class="styled-table products-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Brand</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.title }}</td>
+        <td>{{ product.price | currency }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.brand }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<router-outlet />
