@@ -1,0 +1,198 @@
+<div class="page">
+  <div class="card">
+    <header class="head">
+      <h1 class="title">Template-Driven Form</h1>
+      <p class="sub">Simple Angular form with basic validators.</p>
+    </header>
+
+    <form class="form" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" novalidate>
+
+      <!-- Username -->
+      <div class="field">
+        <label class="label" for="username">Username</label>
+        <input
+          id="username"
+          class="input-box"
+          type="text"
+          name="username"
+          [(ngModel)]="username"
+          #usernameModel="ngModel"
+          placeholder="Enter username"
+          required
+          [class.is-invalid]="usernameModel.invalid && usernameModel.touched">
+
+        <p class="error" *ngIf="usernameModel.errors?.['required'] && usernameModel.touched">
+          Username is required.
+        </p>
+      </div>
+
+      <!-- Email -->
+      <div class="field">
+        <label class="label" for="email">Email</label>
+        <input
+          id="email"
+          class="input-box"
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          #emailModel="ngModel"
+          placeholder="Enter email"
+          required
+          email
+          [class.is-invalid]="emailModel.invalid && emailModel.touched">
+
+        <p class="error" *ngIf="emailModel.errors?.['required'] && emailModel.touched">
+          Email is required.
+        </p>
+        <p class="error" *ngIf="emailModel.errors?.['email'] && emailModel.touched">
+          Please enter a valid email.
+        </p>
+      </div>
+
+      <!-- Password -->
+      <div class="field">
+        <label class="label" for="password">Password</label>
+        <input
+          id="password"
+          class="input-box"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          #passwordModel="ngModel"
+          placeholder="Enter password (min 6)"
+          required
+          minlength="6"
+          [class.is-invalid]="passwordModel.invalid && passwordModel.touched">
+
+        <p class="hint">Minimum of 6 characters.</p>
+
+        <p class="error" *ngIf="passwordModel.errors?.['required'] && passwordModel.touched">
+          Password is required.
+        </p>
+        <p class="error" *ngIf="passwordModel.errors?.['minlength'] && passwordModel.touched">
+          Password must be at least 6 characters.
+        </p>
+      </div>
+
+      <!-- Role -->
+      <div class="field">
+        <label class="label" for="role">Role</label>
+        <select
+          id="role"
+          class="input-box"
+          name="role"
+          [(ngModel)]="role"
+          #roleModel="ngModel"
+          required
+          [class.is-invalid]="roleModel.invalid && roleModel.touched">
+          <option value="" disabled selected>Select role</option>
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+          <option value="guest">Guest</option>
+        </select>
+
+        <p class="error" *ngIf="roleModel.errors?.['required'] && roleModel.touched">
+          Please select a role.
+        </p>
+      </div>
+
+      <!-- Gender -->
+      <div class="field">
+        <label class="label">Gender</label>
+        <div class="radio-group" [class.is-invalid-box]="genderModel.invalid && genderModel.touched">
+          <label class="radio-card">
+            <input
+              type="radio"
+              name="gender"
+              value="male"
+              [(ngModel)]="gender"
+              #genderModel="ngModel"
+              required>
+            <span>Male</span>
+          </label>
+
+          <label class="radio-card">
+            <input
+              type="radio"
+              name="gender"
+              value="female"
+              [(ngModel)]="gender">
+            <span>Female</span>
+          </label>
+        </div>
+
+        <p class="error" *ngIf="genderModel.errors?.['required'] && genderModel.touched">
+          Please select gender.
+        </p>
+      </div>
+
+      <!-- Status -->
+      <div class="field">
+        <label class="label">Status</label>
+        <div class="radio-group" [class.is-invalid-box]="statusModel.invalid && statusModel.touched">
+          <label class="radio-card">
+            <input
+              type="radio"
+              name="status"
+              value="permanent"
+              [(ngModel)]="status"
+              #statusModel="ngModel"
+              required>
+            <span>Permanent</span>
+          </label>
+
+          <label class="radio-card">
+            <input
+              type="radio"
+              name="status"
+              value="probationary"
+              [(ngModel)]="status">
+            <span>Probationary</span>
+          </label>
+        </div>
+
+        <p class="error" *ngIf="statusModel.errors?.['required'] && statusModel.touched">
+          Please select status.
+        </p>
+      </div>
+
+      <!-- Comments -->
+      <div class="field">
+        <label class="label" for="comments">Comments</label>
+        <textarea
+          id="comments"
+          class="textarea"
+          name="comments"
+          [(ngModel)]="comments"
+          rows="3"
+          placeholder="Write your notes here..."></textarea>
+      </div>
+
+      <!-- Submit -->
+      <button class="btn" type="submit" [disabled]="myForm.invalid">
+        Submit
+      </button>
+
+      <p class="footnote">
+        Tip: Button will enable once all required fields are valid.
+      </p>
+
+      <div class="success" *ngIf="submitted">
+        ✅ Submitted successfully!
+      </div>
+
+      <div class="summary" *ngIf="lastSubmitted">
+        <div class="summary-title">Submitted Data</div>
+        <ul class="summary-list">
+          <li><span>Username:</span> {{ lastSubmitted.username }}</li>
+          <li><span>Email:</span> {{ lastSubmitted.email }}</li>
+          <li><span>Role:</span> {{ lastSubmitted.role }}</li>
+          <li><span>Gender:</span> {{ lastSubmitted.gender }}</li>
+          <li><span>Status:</span> {{ lastSubmitted.status }}</li>
+          <li><span>Comments:</span> {{ lastSubmitted.comments || '—' }}</li>
+        </ul>
+      </div>
+
+    </form>
+  </div>
+</div>
