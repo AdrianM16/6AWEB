@@ -1,0 +1,12 @@
+<h1>Service Tickets</h1>
+<input type="text" [formControl]="searchControl" placeholder="Search posts..." />
+
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="error">Error loading posts.</div>
+
+<ul>
+  <li *ngFor="let post of filteredPosts$ | async">
+    <strong>{{ post.id }} - {{ post.title | titlecase }}</strong>
+    <p>{{ post.body | truncate:80 }}</p>
+  </li>
+</ul>

@@ -1,0 +1,92 @@
+/* ===== App Shell Layout (Navbar + Center Card) ===== */
+
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 14px 22px;
+  background: rgba(8, 12, 22, .72);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.navbar .brand{
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: .2px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar .brand::before{
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  box-shadow: 0 0 0 6px rgba(124,58,237,.14);
+}
+
+.navbar .links{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.navbar .links a{
+  text-decoration: none;
+  color: rgba(234,240,255,.78);
+
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.navbar .links a:hover{
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.06);
+  color: rgba(234,240,255,.92);
+}
+
+.navbar .links a.active{
+  color: #fff;
+  background: rgba(124,58,237,.18);
+  border-color: rgba(124,58,237,.35);
+}
+
+/* page container */
+.grid-container{
+  min-height: calc(100vh - 62px);
+  display: flex;
+  justify-content: center;
+  padding: 26px 16px;
+}
+
+/* main card */
+.card{
+  width: min(980px, 96vw);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+/* responsive navbar */
+@media (max-width: 720px){
+  .navbar{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
