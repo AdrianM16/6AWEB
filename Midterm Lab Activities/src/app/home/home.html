@@ -1,0 +1,7 @@
+<h1>Welcome to the Help Desk Portal</h1>
+<h2>Latest Updates</h2>
+<ul>
+  <li *ngFor="let post of latestPosts$ | async">
+    <strong>{{ post.title | uppercase }}</strong>: {{ post.body | truncate:50 }}
+  </li>
+</ul>
