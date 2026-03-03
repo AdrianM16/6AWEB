@@ -1,0 +1,90 @@
+<div class="app-wrap">
+  <div class="container py-4">
+    <header class="mb-4">
+      <h1 class="h3 mb-1">Books CRUD</h1>
+      <p class="text-muted mb-0">Simple MEAN app (MongoDB + Express + Angular)</p>
+    </header>
+
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h2 class="h6 mb-3">Add a Book</h2>
+
+        <div class="row g-2">
+          <div class="col-12 col-md-6">
+            <label class="form-label small">Title</label>
+            <input id="newBook" class="form-control" placeholder="e.g., Atomic Habits" />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label small">Author</label>
+            <input id="newAuthor" class="form-control" placeholder="e.g., James Clear" />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label small">Category</label>
+            <input id="newCategory" class="form-control" placeholder="e.g., Self-help" />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label small">Price</label>
+            <input id="newPrice" type="number" class="form-control" placeholder="0" />
+          </div>
+
+          <div class="col-12">
+            <label class="form-label small">Description</label>
+            <input id="newDesc" class="form-control" placeholder="Short description" />
+          </div>
+
+          <div class="col-12 d-flex gap-2 mt-2">
+            <button class="btn btn-primary" (click)="addBook()">Add book</button>
+            <button class="btn btn-outline-secondary" (click)="refreshBooks()">Refresh list</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h2 class="h6 mb-0">Books List</h2>
+          <span class="badge text-bg-light">{{ books?.length || 0 }} item(s)</span>
+        </div>
+
+        @if (books?.length) {
+          <div class="table-responsive">
+            <table class="table table-sm align-middle">
+              <thead>
+                <tr>
+                  <th style="width: 70px;">ID</th>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Category</th>
+                  <th>Description</th>
+                  <th style="width: 110px;">Price</th>
+                  <th style="width: 120px;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (book of books; track book.id) {
+                  <tr>
+                    <td class="text-muted">{{ book.id }}</td>
+                    <td class="fw-semibold">{{ book.title }}</td>
+                    <td>{{ book.author || '-' }}</td>
+                    <td>{{ book.category || '-' }}</td>
+                    <td class="text-truncate" style="max-width: 260px;">{{ book.desc || '-' }}</td>
+                    <td>₱ {{ book.price }}</td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-danger" (click)="deleteBook(book.id)">Delete</button>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        } @else {
+          <p class="text-muted mb-0">No books available yet. Try adding one above.</p>
+        }
+      </div>
+    </div>
+  </div>
+</div>
